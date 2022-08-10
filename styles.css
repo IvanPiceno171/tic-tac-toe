@@ -1,0 +1,64 @@
+:root {
+    --grid-size: 450px;
+    --margin-size: 10px;
+    --square-size: calc((var(--grid-size) / 3) - var(--margin-size));
+    --main-bg-color: rgba(117, 0, 0, 0.807);
+    --text-color: white;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: var(--main-bg-color);
+    /* background-color: ; */
+    
+  }
+  h1{
+    color: var(--text-color);
+  }
+  #grid {
+    align-content: space-between;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: var(--grid-size);
+    width: var(--grid-size);
+  }
+  
+  #grid div {
+    background-color: rgb(255, 255, 255);
+    height: var(--square-size);
+    width: var(--square-size);
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #grid div img {
+    width: 100%;
+  }
+
+  .resetbtn{
+    border-radius: 5%;
+    width: 8rem;
+    height: 30px;
+    transform: skewX(-20deg);
+    box-shadow: 6px 8px rgba(0, 0, 0, 0.622);
+    border: 4px outset rgba(255, 255, 255, 0.884);
+    background: linear-gradient(rgba(133, 12, 12, 0.692), rgba(110, 27, 6, 0.445));
+    animation: transition;
+    transition: 5s;
+    font: message-box;
+    color: rgb(255, 255, 255);
+  }
+  
+  
+  
+  .resetbtn:hover{
+    opacity: 0;
+    width: 10rem;
+    cursor: cell;
+    background: linear-gradient(to left, #5c65c7, #07394b, #000000);
+  }
+  
