@@ -6,8 +6,7 @@ const gridItems = document.querySelectorAll('#grid div');
 
 for (const item of gridItems) {
   item.addEventListener('click', onClick)
-  console.log(item)
-    
+  console.log(item);
 }
 
 function onClick(event) {
@@ -15,22 +14,24 @@ function onClick(event) {
   const element = event.target;
   // if imageX is created now imageO turn 
   function playerChange() {
+    // currentPlayer = currentPlayer === X_IMAGE_URL ? O_IMAGE_URL : X_IMAGE_URL;
+    // element.innerHTML = `<img src="${currentPlayer}" />`;
     if (currentPlayer === X_IMAGE_URL) {
         element.innerHTML = `<img src="${X_IMAGE_URL}" />`;
+        playerWon();
         currentPlayer = O_IMAGE_URL;
     } 
-    else if (currentPlayer === O_IMAGE_URL) {}
- {
-        let generateSpot = Math.floor(Math.random() * gridItems.length);
-        //check if item is taken
+    if (currentPlayer === O_IMAGE_URL){
+        //check if gridItems.innerHTML is empty and !== x
+        if(gridItems.innerHTML !== `<img src="${X_IMAGE_URL}" />`|| gridItems.innerHTML === ''){
+            
+            let generateSpot = Math.floor(Math.random() * gridItems.length);
           gridItems[generateSpot].innerHTML = `<img src="${O_IMAGE_URL}" />`;
-          currentPlayer = X_IMAGE_URL;
-        
-        //  element.innerHTML = `<img src="${O_IMAGE_URL}" />`;
-    
-      }
+        }
+      currentPlayer = X_IMAGE_URL;
     }
-    playerChange();
+}
+playerChange();
   }
 //clear board with function
 // make element.innerHTML = '';
@@ -41,41 +42,27 @@ function clearBoard() {
   }
 }
 
-// function aI use math random, math floor
-// for loop, loop through gridItems
+// check for win
 
-// function compPlayer(){
-  //   for(const item of gridItems){
-    //     if(item.innerHTML === '' && item.innerHTML !== X_IMAGE_URL){
-//       for(const item of gridItems){
-  //         generateSpot = Math.floor(Math.random() + item.length)  
-  //       }
-  //     }
-  //   }
-  // }
-  
-// loop through gridItems and find empty spots
-function randomSpot(){
-    let generateSpot = Math.floor(Math.random() * gridItems.length);
-    element[generateSpot].innerHTML = `<img src="${currentPlayer}" />`;
-    
+function playerWon(){
+    if(gridItems[0].innerHTML === `<img src="${X_IMAGE_URL}"/>`){
+        if(gridItems[1].innerHTML === `<img src="${X_IMAGE_URL}"/>` && gridItems[2].innerHTML === `<img src="${X_IMAGE_URL}"/>`){
+          return alert('winner')
+          console.log('hello')
+        }
+    }
+    if(gridItems[0].innerHTML === `<img src="${X_IMAGE_URL}"/>`){
+        if(gridItems[3].innerHTML === `<img src="${X_IMAGE_URL}"/>` && gridItems[6].innerHTML === `<img src="${X_IMAGE_URL}"/>`){
+            console.log('hello')
+            return alert('winner')
+        }
+    }
+    if(gridItems[0].innerHTML === `<img src="${X_IMAGE_URL}"/>`){
+        if(gridItems[4].innerHTML === `<img src="${X_IMAGE_URL}"/>` && gridItems[8].innerHTML === `<img src="${X_IMAGE_URL}"/>`){
+            console.log('hello')
+            return alert('winner')
+        }
+    }
 }
 
-
-
-
-// currentPlayer = currentPlayer === X_IMAGE_URL ? O_IMAGE_URL : X_IMAGE_URL;
-// element.innerHTML = `<img src="${currentPlayer}" />`;
   
-  
-  // if(currentPlayer === X_IMAGE_URL) {
-  //   imageX = document.createElement('img');
-  //   imageX.src = X_IMAGE_URL;
-  //   element.appendChild(imageX);
-  //   currentPlayer = O_IMAGE_URL;
-  // }  else if(currentPlayer === O_IMAGE_URL){
-  // imageO = document.createElement('img');
-  // imageO.src = O_IMAGE_URL;
-  // element.appendChild(imageO);
-  // currentPlayer = X_IMAGE_URL;
-  // }
